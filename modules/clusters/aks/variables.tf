@@ -88,7 +88,7 @@ variable aks_tags {
   type        = map(string)
   description = "Tags to apply to aks"
   default = {
-    Name = "adp-simhub-petar-aks-test"
+    Name = "petar-aks-test"
   }
 }
 

@@ -9,7 +9,7 @@ terraform {
   }
 }
 
-data "azurerm_subnet" "adp_simhub_aks_subnet" {
+data "azurerm_subnet" "subnet" {
   count = var.aks_use_azure_network_plugin ? 1 : 0
   resource_group_name = var.aks_network_vnet_resource_group
   virtual_network_name = var.aks_network_vnet_name
@@ -51,6 +51,6 @@ resource "azurerm_kubernetes_cluster" "example" {
 
 locals {
   network_plugin = var.aks_use_azure_network_plugin ? "azure" : "kubenet"
-  vnet_subnet_id = var.aks_use_azure_network_plugin ? data.azurerm_subnet.adp_simhub_aks_subnet[0].id : null
+  vnet_subnet_id = var.aks_use_azure_network_plugin ? data.azurerm_subnet.subnet[0].id : null
   
 }
