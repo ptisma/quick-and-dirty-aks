@@ -1,6 +1,7 @@
 Quick and dirty Terraform script to deploy the minimal AKS cluster to test around
 
 Steps:
+
 0. Run az login --tenant
 
 2. Run  az account set --subscription
